@@ -16,7 +16,7 @@
 # inherit from common msm8916
 -include device/lge/msm8916-common/BoardConfigCommon.mk
 
-TARGET_KERNEL_CONFIG := c70_global_com_defconfig
+TARGET_KERNEL_CONFIG := c70_global_com-perf_defconfig
 BOARD_KERNEL_SEPARATED_DT := true
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -24,7 +24,7 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824      # 16384 * 1024 mmcblk0p31
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824  # 16484 * 1024 mmcblk0p32
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2576980992  # 2375680 * 1024 mmcblk0p41
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 3833488384 # 4751232 * 1024 mmcblk0p42
-TARGET_KERNEL_SOURCE := kernel/lge/nougat
+TARGET_KERNEL_SOURCE := kernel/lge/msm8916
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -33,7 +33,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
 
 # Vold
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/fileS
+
+# NFC
+BOARD_NFC_DEVICE := "/dev/bcm2079x"
 
 # TWRP
 TW_THEME := portrait_hdpi

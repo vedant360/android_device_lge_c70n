@@ -31,7 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=none \
     persist.audio.fluence.voicerec=none \
     persist.audio.fluence.speaker=none \
-    ro.qc.sdk.audio.fluencetype=none
+    ro.qc.sdk.audio.fluencetype=none	
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -60,9 +60,13 @@ PRODUCT_COPY_FILES += \
 # common msm8916
 $(call inherit-product, device/lge/msm8916-common/msm8916.mk)
 
+TARGET_VENDOR_PRODUCT_NAME := c70n
+TARGET_VENDOR_DEVICE_NAME := c70n
+TARGET_VENDOR := lge
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c70n
 PRODUCT_NAME := full_c70n
 PRODUCT_BRAND := lge
-PRODUCT_MODEL := Spirit LTE
+PRODUCT_MODEL := LG Spirit LTE
 PRODUCT_MANUFACTURER := LGE
+PRODUCT_GMS_CLIENTID_BASE := android-lge
