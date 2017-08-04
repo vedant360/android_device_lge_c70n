@@ -16,7 +16,7 @@
 # inherit from common msm8916
 -include device/lge/msm8916-common/BoardConfigCommon.mk
 
-TARGET_KERNEL_CONFIG := c70_global_com-perf_defconfig
+TARGET_KERNEL_CONFIG := c70_defconfig
 BOARD_KERNEL_SEPARATED_DT := true
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -34,6 +34,11 @@ TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
 
 # Vold
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/fileS
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # NFC
 BOARD_NFC_DEVICE := "/dev/bcm2079x"

@@ -26,6 +26,25 @@ TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
 PRODUCT_COPY_FILES += \
 	$(TARGET_PREBUILT_KERNEL):kernel
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+
+# NFC
+PRODUCT_PACKAGES += \
+    NfcNci \
+    nfc_nci.bcm2079x.default \
+    Tag
+
+# Stlport
+PRODUCT_PACKAGES += libstlport
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    $(LOCAL_PATH)/configs/libnfc-brcm-20795a20.conf:system/etc/libnfc-brcm-20795a20.conf \
+    $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=none \
@@ -52,6 +71,16 @@ PRODUCT_COPY_FILES += \
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.target.rc
+
+# Camera
+PRODUCT_PACKAGES += \
+    libmm-qcamera \
+    camera.msm8916
 
 # Wifi
 PRODUCT_COPY_FILES += \
