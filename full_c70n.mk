@@ -28,11 +28,12 @@ PRODUCT_COPY_FILES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
-
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:system/etc/permissions/android.hardware.nfc.hcef.xml
 # NFC
 PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
     NfcNci \
     nfc_nci.bcm2079x.default \
     Tag
@@ -42,7 +43,7 @@ PRODUCT_PACKAGES += libstlport
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/configs/libnfc-brcm-20795a20.conf:system/etc/libnfc-brcm-20795a20.conf \
+    $(LOCAL_PATH)/configs/libnfc-brcm-20795a10.conf:system/etc/libnfc-brcm-20795a10.conf \
     $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml
 
 # Audio
@@ -88,6 +89,9 @@ PRODUCT_COPY_FILES += \
 
 # common msm8916
 $(call inherit-product, device/lge/msm8916-common/msm8916.mk)
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/m216/overlay
 
 TARGET_VENDOR_PRODUCT_NAME := c70n
 TARGET_VENDOR_DEVICE_NAME := c70n

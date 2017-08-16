@@ -1,2 +1,0 @@
-type mpdecision_socket, file_type;
-type sysfs_mmi_touch, fs_type, sysfs_type;

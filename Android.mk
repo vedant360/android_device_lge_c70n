@@ -18,6 +18,10 @@ ifneq ($(filter c70n,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+# Create links for keymaster
+KEYMASTER_IMAGES := \
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaster.mdt
+
 KEYMASTER_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/keymaster/,$(notdir $(KEYMASTER_IMAGES)))
 $(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Keymaster firmware link: $@"

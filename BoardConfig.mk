@@ -35,6 +35,14 @@ TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
 # Vold
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/fileS
 
+# Bluetooth
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+#BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := false
+#BOARD_HAS_QCA_BT_ROME := true
+#BOARD_HAVE_BLUETOOTH := true
+#BOARD_HAVE_BLUETOOTH_QCOM := true
+#QCOM_BT_USE_BTNV := true
+
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
@@ -44,6 +52,8 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 BOARD_NFC_DEVICE := "/dev/bcm2079x"
 
 # TWRP
+RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_IGNORE_MISC_WIPE_DATA := true

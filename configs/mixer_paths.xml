@@ -1142,6 +1142,7 @@
     -->
 
     <path name="mictest-handset-mic">
+        <path name="handset-mic"/>
     </path>
 
     <path name="mictest-submic1">
