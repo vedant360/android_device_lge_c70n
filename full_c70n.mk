@@ -48,10 +48,10 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.audio.fluence.voicecall=none \
-    persist.audio.fluence.voicerec=none \
-    persist.audio.fluence.speaker=none \
-    ro.qc.sdk.audio.fluencetype=none	
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicerec=false \
+    persist.audio.fluence.speaker=true \
+    ro.qc.sdk.audio.fluencetype=none
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -87,19 +87,31 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/lge/c70n/wcnss/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+# LCD density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=320
+
 # common msm8916
 $(call inherit-product, device/lge/msm8916-common/msm8916.mk)
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += device/lge/m216/overlay
 
+DEVICE_PACKAGE_OVERLAYS += device/lge/c70n/overlay
 TARGET_VENDOR_PRODUCT_NAME := c70n
 TARGET_VENDOR_DEVICE_NAME := c70n
 TARGET_VENDOR := lge
+
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=c70n PRODUCT_NAME=c70n
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+BUILD_FINGERPRINT=lge/c70_global_com/c70:6.0/MRA58K/161231409389e:user/release-keys \
+PRIVATE_BUILD_DESC="c70_global_com-user 6.0 MRA58K 161231409389e release-keys"
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c70n
 PRODUCT_NAME := full_c70n
 PRODUCT_BRAND := lge
-PRODUCT_MODEL := LG Spirit LTE
+PRODUCT_MODEL := LG Spirit 4G LTE
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_GMS_CLIENTID_BASE := android-lge
