@@ -1,1 +1,1 @@
-add_lunch_combo lineage_c70n-user
+add_lunch_combo aosp_c70n-user
